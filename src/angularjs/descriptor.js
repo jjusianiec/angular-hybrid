@@ -11,7 +11,7 @@ define("descriptor", [
     ]);
 
   // this line must be removed
-  // angular.bootstrap(document.getElementsByTagName("html")[0], [moduleName]);
+  angular.bootstrap(document.getElementsByTagName("html")[0], [moduleName]);
 
   return moduleName;
 });
