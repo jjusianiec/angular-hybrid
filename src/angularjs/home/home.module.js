@@ -5,14 +5,14 @@ define([
 
     var home = angular.module('home', []);
 
-    home.controller('HomeController', require('./home.controller'));
+    home.controller('HomeController', require(`./home.controller`));
 
 
     home.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
         .when('/home', {
           controller: 'HomeController',
-          template: require('./home.html'),
+          template: require(`html-loader!./home.html`),
         });
     }]);
 
