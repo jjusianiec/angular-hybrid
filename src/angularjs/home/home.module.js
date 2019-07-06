@@ -12,7 +12,7 @@ define([
         $routeProvider
         .when('/home', {
           controller: 'HomeController',
-          templateUrl: './angularjs/home/home.html',
+          template: require('./home.html'),
         });
     }]);
 

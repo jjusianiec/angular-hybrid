@@ -24,13 +24,15 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/angularjs"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/angular/angular.js",
+              "node_modules/angular-route/angular-route.js"
+            ]
           },
           "configurations": {
             "production": {

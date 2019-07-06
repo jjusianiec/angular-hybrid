@@ -4,7 +4,7 @@ define("descriptor", [
 
   let moduleName = 'angularJsApp';
 
-  angular.module(moduleName,
+  var app = angular.module(moduleName,
     [
       'ngRoute',
       'home'
