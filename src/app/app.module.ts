@@ -9,6 +9,7 @@ import {NgHybridStateDeclaration, UIRouterUpgradeModule} from '@uirouter/angular
 
 const states: NgHybridStateDeclaration[] = [
   {
+    parent: 'dashboard',
     name: 'angular-home',
     url: '/angular-home',
     component: AngularHomeComponent

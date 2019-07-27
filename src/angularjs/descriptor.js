@@ -1,5 +1,6 @@
 define("descriptor", [
-  './home/home.module'
+  './home/home.module',
+  './dashboard/dashboard.module'
 ], function () {
 
   let moduleName = 'angularJsApp';
@@ -8,13 +9,17 @@ define("descriptor", [
     [
       'ui.router',
       'ui.router.upgrade',
-      'home'
+      'home',
+      'dashboard'
     ]);
 
   app.config(['$locationProvider', function ($locationProvider) {
     $locationProvider.html5Mode(true);
   }]);
 
+  app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/dashboard");
+  }]);
 
   // this line must be removed
   // angular.bootstrap(document.getElementsByTagName("html")[0], [moduleName]);

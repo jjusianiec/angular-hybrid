@@ -10,11 +10,11 @@ define([
     home.config(['$stateProvider', function ($stateProvider) {
       $stateProvider
         .state({
+          parent: 'dashboard',
           name: 'angularjs-home',
           url: '/home',
           template: require(`html-loader!./home.html`)
         });
-
     }]);
 
     return home;
