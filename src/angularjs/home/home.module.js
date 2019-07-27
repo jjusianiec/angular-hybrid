@@ -7,13 +7,14 @@ define([
 
     home.controller('HomeController', require(`./home.controller`));
 
-
-    home.config(['$routeProvider', function ($routeProvider) {
-        $routeProvider
-        .when('/home', {
-          controller: 'HomeController',
-          template: require(`html-loader!./home.html`),
+    home.config(['$stateProvider', function ($stateProvider) {
+      $stateProvider
+        .state({
+          name: 'angularjs-home',
+          url: '/home',
+          template: require(`html-loader!./home.html`)
         });
+
     }]);
 
     return home;

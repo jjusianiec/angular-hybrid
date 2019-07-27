@@ -3,15 +3,15 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {UpgradeModule} from '@angular/upgrade/static';
-import {RouterModule, Routes} from '@angular/router';
 import {AngularHomeComponent} from './angular-home/angular-home.component';
-import moduleName from '../angularjs/descriptor';
+import moduleName from '../angularjs/descriptor.js';
+import {NgHybridStateDeclaration, UIRouterUpgradeModule} from '@uirouter/angular-hybrid';
 
-const routes: Routes = [
+const states: NgHybridStateDeclaration[] = [
   {
-    path: '', children: [
-      {path: 'angular-home', component: AngularHomeComponent}
-    ]
+    name: 'angular-home',
+    url: '/angular-home',
+    component: AngularHomeComponent
   }
 ];
 
@@ -23,14 +23,20 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     UpgradeModule,
-    RouterModule.forRoot(routes)
+    UIRouterUpgradeModule.forRoot({
+      states: states
+    })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule {
-  constructor(private upgrade: UpgradeModule) {
-    this.upgrade.bootstrap(document.getElementById('angularjsContainer'), [moduleName]);
+
+  constructor(private upgradeModule: UpgradeModule) {
+  }
+
+  public ngDoBootstrap() {
+    // Intialize the AngularJS Module
+    this.upgradeModule.bootstrap(document.body, [moduleName]);
   }
 
 }

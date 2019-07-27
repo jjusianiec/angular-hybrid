@@ -6,9 +6,15 @@ define("descriptor", [
 
   var app = angular.module(moduleName,
     [
-      'ngRoute',
+      'ui.router',
+      'ui.router.upgrade',
       'home'
     ]);
+
+  app.config(['$locationProvider', function ($locationProvider) {
+    $locationProvider.html5Mode(true);
+  }]);
+
 
   // this line must be removed
   // angular.bootstrap(document.getElementsByTagName("html")[0], [moduleName]);
